@@ -191,7 +191,7 @@ npx eslint --init
 ? What format do you want your config file to be in? JavaScript
 ```
 
-需要安装
+需要安装（帮我们安装的）
 
 ```bash
 npm i eslint-config-standard@latest eslint@>=5.0.0\
@@ -248,7 +248,8 @@ npm i husky lint-staged -D
 },
 "lint-staged": {
   "*.{js,vue}": [
-    "eslint --fix"
+    "eslint --fix",
+    "git add"
   ]
 }
 ```
