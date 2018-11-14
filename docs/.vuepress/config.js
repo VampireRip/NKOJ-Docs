@@ -17,6 +17,13 @@ module.exports = {
         ]
       },
       {
+        title: 'Git 的魔法使用',
+        collapsable: false,
+        children: [
+          ['/git/amend.md', '奇怪的 revert 事件'],
+        ]
+      },
+      {
         title: '吐槽 & 杂项',
         collapsable: false,
         children: [
