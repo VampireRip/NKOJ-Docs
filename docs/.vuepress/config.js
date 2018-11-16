@@ -17,16 +17,24 @@ module.exports = {
         ]
       },
       {
+        title: '测试的 Vampire',
+        collapsable: false,
+        children: [
+          ['/vampire/bdd.md', '后端测试'],
+        ]
+      },
+      {
         title: 'Git 的魔法使用',
         collapsable: false,
         children: [
-          ['/git/amend.md', '奇怪的 revert 事件'],
+          ['/git/amend.md', '奇怪的 Git Revert 事件'],
         ]
       },
       {
         title: '吐槽 & 杂项',
         collapsable: false,
         children: [
+          ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
           ['/misc/visualstudio.md', '辣鸡 Visual Studio'],
         ]
       },
