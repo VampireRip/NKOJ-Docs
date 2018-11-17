@@ -154,16 +154,17 @@ psql: could not connect to server: No such file or directory
 那么我们就要想想办法来修改它的默认位置了。当然，我们自己编译的 psql 是没问题的，所以可以添加到环境变量里面：
 
 ```bash
+# 不适用于 WSL
 sudo vim /etc/environment # 最好别改崩了...
+
+# WSL 改这个文件：
+sudo vim /etc/bash.bashrc # WSL
 ```
 
-在 `PATH="` 后加入 `/usr/local/postgres/bin:`
+在 `environment` 的 `PATH="` 后加入 `/usr/local/postgres/bin:`
+或者在 `bash.bashrc` 的最后加入 `export PATH=/usr/local/postgres/bin:$PATH:`
 
-然后，为了让它立即生效（会临时丢弃其他环境变量！）：
-
-```bash
-set -a; source /etc/environment; set +a
-```
+注销，或者关掉会话重新打开，就可以生效啦。
 
 再执行 `psql` 试试看？是不是可以成功连接了。
 
