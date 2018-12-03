@@ -13,14 +13,16 @@ module.exports = {
         collapsable: false,
         children: [
           ['/vampire/codingstyle.md', '有趣的 Coding Style'],
-          ['/vampire/sw.md', '糟糕的 Service Worker']
+          ['/vampire/sw.md', '糟糕的 Service Worker'],
+          ['/misc/bbr.md', '使用 BBR 拥塞控制算法']
         ]
       },
       {
-        title: '测试的 Vampire',
+        title: '后端的 Vampire',
         collapsable: false,
         children: [
-          ['/vampire/bdd.md', '后端测试'],
+          ['/vampire/bdd.md', 'mocha 测试'],
+          ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
         ]
       },
       {
@@ -34,8 +36,8 @@ module.exports = {
         title: '吐槽 & 杂项',
         collapsable: false,
         children: [
-          ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
           ['/misc/visualstudio.md', '辣鸡 Visual Studio'],
+          ['/misc/autoremove.md', 'Ubuntu 的自动移除'],
         ]
       },
     ],
