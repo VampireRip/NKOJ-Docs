@@ -23,6 +23,8 @@ module.exports = {
         children: [
           ['/vampire/bdd.md', 'mocha 测试'],
           ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
+          ['/misc/vpsconf.md', '拿到新 VPS 的配置'],
+          ['/misc/firewalld.md', 'Firewalld 防火墙'],
         ]
       },
       {
