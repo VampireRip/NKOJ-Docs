@@ -1,29 +1,26 @@
-## 主机名配置
+## 主机名
 
 ```bash
 sudo hostname <主机名>
 vi /etc/hostname # 改为主机名
 
-# --- 如果在 Ubuntu Cloud 上
+# 如果在 Ubuntu Cloud 上
 
 vim /etc/cloud/cloud.cfg # 将 preserve_hostname 改为 true 
-
-# --- 或者一句话
-
-sudo sed -i '/preserve_hostname: false/c\preserve_hostname: true' /etc/cloud/cloud.cfg && sudo hostnamectl set-hostname <主机名>
 ```
 
-## 防火墙配置
+## 防火墙
 
 记得 ufw 并不是很好用，所以还是装了 firewalld
 
-```
+```bash
 sudo systemctl stop iptables
+# 防止它被启动
 sudo systemctl mask iptables
 sudo apt-get remove ufw
 ```
 
-```
+```bash
 sudo apt install firewalld
 sudo systemctl enable firewalld
 sudo systemctl start firewalld
@@ -37,26 +34,26 @@ netstat -tulnp
 lsof -n
 ```
 
-## SSH 配置
+## SSH 
 
 ```bash
 vim /etc/ssh/sshd_config
 ```
 
-### 端口号配置
+### 端口号
 
 ```
 Port 6444
 ```
 
-### 超时配置
+### 超时
 
 ```
 ClientAliveInterval 120
 ClientAliveCountMax 30
 ```
 
-### 公钥配置
+### 公钥
 
 ```
 PasswordAuthentication no
@@ -64,13 +61,13 @@ PasswordAuthentication no
 
 本机执行
 
-```
+```bash
 cat ~/.ssh/id_rsa.pub | ssh <用户名>@<地址> 'cat >> ~/.ssh/authorized_keys'
 ```
 
 服务器执行
 
-```
+```bash
 service sshd restart
 ```
 
@@ -90,6 +87,13 @@ su -- <用户名>
 sudo visudo
 # 添加一行
 <用户名> ALL=(ALL) NOPASSWD: ALL
+```
+
+## 默认 mv 移动隐藏文件
+
+```bash
+# ~/.bashrc
+shopt -s dotglob
 ```
 
 ## 安装 Docker
