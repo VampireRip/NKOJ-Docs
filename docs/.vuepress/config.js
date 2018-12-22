@@ -26,6 +26,8 @@ module.exports = {
           ['/misc/vpsconf.md', '新 VPS 的配置'],
           ['/misc/firewalld.md', 'firewalld 防火墙'],
           ['/vampire/vhost.md', 'Virtual Hosts(Server Blocks)'],
+          ['/misc/owncloud.md', 'ownCloud 的部署'],
+          ['/vampire/pm2.md', 'Vampire 的 pm2']
         ]
       },
       {

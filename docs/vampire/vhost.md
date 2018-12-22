@@ -57,7 +57,7 @@ server {
 ```
 
 ```bash
-# 创建链接
+# 创建链接，注意 ln 的第一个参数总必须是绝对路径！
 ln -s /etc/nginx/sites-available/vampire.rip.conf /etc/nginx/sites-enabled/
 # 测试 
 nginx -t # 应该不报告任何错误
