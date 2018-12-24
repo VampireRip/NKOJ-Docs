@@ -61,6 +61,15 @@ docker-compose exec owncloud vi config/config.php
 
 添加个 vhost，https 证书，配置好 ssl。
 
+在对应的 `server block` 中配置最大可以上传的文件大小，比如这样：
+
+```conf
+client_max_body_size 4000M;
+
+sendfile on;
+send_timeout 600s;
+```
+
 ### 配置 firewalld 
 
 可以写个 rich-rule 做 port-forward
