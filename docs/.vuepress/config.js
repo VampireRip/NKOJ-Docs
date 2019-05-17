@@ -13,8 +13,7 @@ module.exports = {
         collapsable: false,
         children: [
           ['/vampire/codingstyle.md', '有趣的 Coding Style'],
-          ['/vampire/sw.md', '糟糕的 Service Worker'],
-          ['/misc/bbr.md', '使用 BBR 拥塞控制算法']
+          ['/vampire/sw.md', '糟糕的 Service Worker']
         ]
       },
       {
@@ -23,11 +22,17 @@ module.exports = {
         children: [
           ['/vampire/bdd.md', 'mocha 测试'],
           ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
+          ['/vampire/pm2.md', 'Vampire 的 pm2'],
+        ]
+      },
+      {
+        title: 'Vampire 的归宿',
+        collapsable: false,
+        children: [
           ['/misc/vpsconf.md', '新 VPS 的配置'],
           ['/misc/firewalld.md', 'firewalld 防火墙'],
+          ['/misc/bbr.md', '使用 BBR 拥塞控制算法'],
           ['/vampire/vhost.md', 'Virtual Hosts(Server Blocks)'],
-          ['/misc/owncloud.md', 'ownCloud 的部署'],
-          ['/vampire/pm2.md', 'Vampire 的 pm2']
         ]
       },
       {
@@ -43,6 +48,9 @@ module.exports = {
         children: [
           ['/misc/visualstudio.md', '辣鸡 Visual Studio'],
           ['/misc/autoremove.md', 'Ubuntu 的自动移除'],
+          ['/misc/disablemidpaste.md', '禁用 GDM 鼠标中键粘贴'],
+          ['/misc/compileiwlwifi.md', '编译 iwlwifi'],
+          ['/misc/compilegnome.md', '编译 gnome'],
         ]
       },
     ],
