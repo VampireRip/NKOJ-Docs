@@ -33,6 +33,7 @@ module.exports = {
           ['/misc/firewalld.md', 'firewalld 防火墙'],
           ['/misc/bbr.md', '使用 BBR 拥塞控制算法'],
           ['/vampire/vhost.md', 'Virtual Hosts(Server Blocks)'],
+          ['/vampire/systemd.md', '添加 Systemd 服务'],
         ]
       },
       {
