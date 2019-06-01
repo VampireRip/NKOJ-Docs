@@ -88,6 +88,66 @@ server {
 }
 ```
 
+### 高级反向代理
+
+附带 cache 和 rewrite
+
+创建目录 `/var/lib/nginx/cache`。
+
+修改 `/etc/nginx/nginx.conf`，在 http 块中添加：
+
+```
+    ##
+    # Cache
+    #
+
+    proxy_cache_path  /var/lib/nginx/cache  levels=1:2 inactive=1d keys_zone=staticfilecache:180m  max_size=700m;
+```
+
+修改目标 vhost 的配置文件：
+
+```
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate     /var/www/cert/cert;
+    ssl_certificate_key /var/www/cert/key;
+    server_name violette.vampire.rip;
+
+    location /api/ {
+        add_header Strict-Transport-Security "max-age=2592000; preload";
+        add_header X-Frame-Options DENY;
+        add_header X-Content-Type-Options nosniff;
+        add_header Referrer-Policy "no-referrer";
+        proxy_pass http://example.com:4000/;
+        proxy_http_version 1.1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+        sub_filter "http://example.com:4000" "https://violette.vampire.rip/api";
+        sub_filter_once off;
+        sub_filter_types text/css application/javascript;
+    }
+
+    location / {
+	add_header Strict-Transport-Security "max-age=2592000; preload";
+	add_header X-Frame-Options DENY;
+	add_header X-Content-Type-Options nosniff;
+	add_header Referrer-Policy "no-referrer";
+        proxy_pass http://example.com:4001/;
+        proxy_http_version 1.1;
+	proxy_cache staticfilecache;
+        proxy_cache_valid      200  1h;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+	sub_filter "http://example.com:4000" "http://example.com/api";
+	sub_filter_once off;
+	sub_filter_types text/css application/javascript;
+    }
+}
+```
+
 ## 证书
 
 ### Certbot
