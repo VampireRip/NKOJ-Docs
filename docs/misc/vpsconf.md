@@ -1,3 +1,10 @@
+## 编码
+
+```
+export LC_ALL=en_US.utf8 
+export LANG="$LC_ALL"
+```
+
 ## 主机名
 
 ```bash
