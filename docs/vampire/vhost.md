@@ -18,6 +18,27 @@ sudo apt install nginx
 charset UTF-8;
 ```
 
+### 自定义 403 / 404
+
+```conf
+
+# http 块中
+error_page   404  =404  /404.html;
+error_page   403  =403  /403.html;
+
+location = /403.html {
+        root /var/www/html;
+        allow all;
+}
+location = /404.html {
+        root /var/www/html;
+        allow all;
+}
+location / {
+        deny all;
+}
+```
+
 ### 前端静态页面
 
 假定静态页面在 `/var/www/vampire.rip/public`，接受来自 `vampire.rip www.vampire.rip` 的连接：
