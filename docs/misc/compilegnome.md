@@ -1,1 +1,0 @@
-KDE 的 plasma 比 gnome 好用多了，建议不要用 gnome 了。

@@ -20,38 +20,49 @@ module.exports = {
         title: '后端的 Vampire',
         collapsable: false,
         children: [
-          ['/vampire/bdd.md', 'mocha 测试'],
-          ['/postgres/install.md', 'PostgreSQL 的魔法安装'],
-          ['/vampire/pm2.md', 'Vampire 的 pm2'],
+          ['/backend/bdd.md', 'mocha 测试'],
+          ['/backend/pm2.md', 'Vampire 的 pm2'],
         ]
       },
       {
         title: 'Vampire 的归宿',
         collapsable: false,
         children: [
-          ['/misc/vpsconf.md', '新 VPS 的配置'],
-          ['/misc/firewalld.md', 'firewalld 防火墙'],
-          ['/misc/bbr.md', '使用 BBR 拥塞控制算法'],
-          ['/vampire/vhost.md', 'Virtual Hosts(Server Blocks)'],
-          ['/vampire/systemd.md', '添加 Systemd 服务'],
+          ['/server/vpsconf.md', 'VPS 的初始配置'],
+          ['/server/firewalld.md', '令人心安的防火墙'],
+          ['/server/bbr.md', 'BBR 拥塞控制算法'],
+          ['/server/vhost.md', 'Virtual Hosts(Server Blocks)'],
+          ['/server/teamcity.md', 'Docker in Docker & Vampire CI'],
+          ['/server/owncloud.md', 'Nextcloud 的魔法部署'],
+          ['/server/mailserver.md', 'Vampire Mail'],
         ]
       },
       {
-        title: 'Git 的魔法使用',
+        title: 'Vampire 网络',
         collapsable: false,
         children: [
-          ['/git/amend.md', '奇怪的 Git Revert 事件'],
+          ['/network/anycast.md', 'Vampire Anycast?'],
+        ]
+      },
+      {
+        title: '桌面版 Vampire',
+        collapsable: true,
+        children: [
+          ['/desktop/disablemidpaste.md', '禁用 GDM 鼠标中键粘贴'],
+          ['/desktop/compileiwlwifi.md', '编译 iwlwifi'],
+          ['/desktop/compilegnome.md', '编译 gnome'],
         ]
       },
       {
         title: '吐槽 & 杂项',
-        collapsable: false,
+        collapsable: true,
         children: [
+          ['/misc/git-amend.md', '奇怪的 Git Revert 事件'],
           ['/misc/visualstudio.md', '辣鸡 Visual Studio'],
           ['/misc/autoremove.md', 'Ubuntu 的自动移除'],
-          ['/misc/disablemidpaste.md', '禁用 GDM 鼠标中键粘贴'],
-          ['/misc/compileiwlwifi.md', '编译 iwlwifi'],
-          ['/misc/compilegnome.md', '编译 gnome'],
+          ['/misc/usergroup.md', '用户与用户组'],
+          ['/misc/systemd.md', '添加 Systemd 服务'],
+          ['/misc/postgres-install.md', 'PostgreSQL 的魔法安装'],
         ]
       },
     ],

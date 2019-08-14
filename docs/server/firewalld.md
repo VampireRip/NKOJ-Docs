@@ -11,6 +11,8 @@
 ```bash
 firewall-cmd --reload # 采用磁盘上的配置文件
 firewall-cmd --runtime-to-permanent # 采用内存中的配置并写入磁盘
+firewall-cmd --list-all-zones # 查看当前所有的魔法
+firewall-cmd --permanent --zone=trusted --change-interface=docker0 # 把 Docker 的 adaptar 添加到信任列表
 ```
 
 一个可能的 [`rich rule`](https://firewalld.org/documentation/man-pages/firewalld.richlanguage.html), [`rich rule 2`](https://firewalld.org/2018/12/rich-rule-priorities):

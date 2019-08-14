@@ -1,7 +1,7 @@
 ## 编码
 
 ```
-export LC_ALL=en_US.utf8 
+export LC_ALL=en_US.utf8
 export LANG="$LC_ALL"
 ```
 
@@ -13,7 +13,7 @@ vi /etc/hostname # 改为主机名
 
 # 如果在 Ubuntu Cloud 上
 
-vim /etc/cloud/cloud.cfg # 将 preserve_hostname 改为 true 
+vim /etc/cloud/cloud.cfg # 将 preserve_hostname 改为 true
 ```
 
 ## 防火墙
@@ -36,12 +36,12 @@ sudo systemctl start firewalld
 ## 查看占用的端口
 
 ```bash
-netstat -tulnp 
+netstat -tulnp
 # 或者
 lsof -n
 ```
 
-## SSH 
+## SSH
 
 ```bash
 vim /etc/ssh/sshd_config
@@ -86,7 +86,7 @@ adduser <用户名>
 # 添加进 sudoer
 usermod -aG sudo <用户名>
 # 切换到用户
-su -- <用户名> 
+su -- <用户名>
 # 然后把公钥拷贝进 .ssh/authorized_keys
 ...
 
@@ -107,6 +107,35 @@ shopt -s dotglob
 
 [源网站](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1)
 
+[Docker Compose](https://github.com/docker/compose/releases)
+
 ```bash
 curl -fsSL get.docker.com | CHANNEL=test sh
+```
+
+## IP 地址配置
+
+```bash
+# 有多个 IP 时选择默认网关
+ip route replace default via <Gateway> dev <DEV> src <IP>
+
+# 添加多个 IPv6 地址
+$IP6BLOCK="2001::41d0:2:ad64::/64"
+ip add add local $IP6BLOCK dev lo
+ip route add local $IP6BLOCK dev eth0
+sysctl  net.ipv6.ip_nonlocal_bind = 1
+
+# 配置 ndppd
+route-ttl 30000
+
+proxy eth0 {
+
+   router no
+
+   timeout 500
+   ttl 30000
+   rule 2001::41d0:2:ad64::/64{
+       static
+   }
+}
 ```

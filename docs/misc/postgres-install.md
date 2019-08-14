@@ -1,3 +1,5 @@
+Outdated! Postgres 现在有魔法存储库，即使在 Ubuntu 上只要添加源就可以直接 apt 安装了
+
 不知道为什么在 `Ubuntu 18.04` 上安装 `Postgres 11` 一直出现各种问题。。
 
 明明以前只需要 `apt install postgres-10` 就好了，为什么，怎么会变成这个样子呢。。

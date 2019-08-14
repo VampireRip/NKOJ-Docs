@@ -38,8 +38,7 @@ Vampire Docs 的文档站 [VampireInk](https://vampire.ink/)
 
 GitHub，为程序员们免费提供了好多好多非常实用的服务，超棒！
 
-[HostDare](https://manage.hostdare.com/aff.php?aff=970)，感谢提供哪怕在中国也能快速访问到的服务器~
+[drServer](https://drserver.net/)，非常优秀的云服务器，Vampire 所在的地方（甚至不是推广链接）。
 
 CloudFlare，很棒的 CDN~
 
-点名批评 GitBook，非常差

@@ -27,15 +27,15 @@ error_page   404  =404  /404.html;
 error_page   403  =403  /403.html;
 
 location = /403.html {
-        root /var/www/html;
-        allow all;
+    root /var/www/html;
+    allow all;
 }
 location = /404.html {
-        root /var/www/html;
-        allow all;
+    root /var/www/html;
+    allow all;
 }
 location / {
-        deny all;
+    deny all;
 }
 ```
 
@@ -52,35 +52,35 @@ vim vampire.rip.conf
 
 ```conf
 server {
-        listen 80;
-        listen [::]:80;
-        listen 443 ssl;
-        listen [::]:443 ssl;
+    listen 80;
+    listen [::]:80;
+    listen 443 ssl;
+    listen [::]:443 ssl;
 
-        root /var/www/vampire.rip/public;
+    root /var/www/vampire.rip/public;
 
-        index index.html;
+    index index.html;
 
-        server_name vampire.rip www.vampire.rip;
+    server_name vampire.rip www.vampire.rip;
 
-        location / {
-            try_files $uri $uri/ =404;
-        }
-        
-        location /api {
-            proxy_pass http://localhost:8001;
-            proxy_http_version 1.1;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_cache_bypass $http_upgrade;
-        }
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location /api {
+        proxy_pass http://localhost:8001;
+        proxy_http_version 1.1;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_cache_bypass $http_upgrade;
+    }
 }
 ```
 
 ```bash
 # 创建链接，注意 ln 的第一个参数总必须是绝对路径！
 ln -s /etc/nginx/sites-available/vampire.rip.conf /etc/nginx/sites-enabled/
-# 测试 
+# 测试
 nginx -t # 应该不报告任何错误
 # 重启
 nginx -s reload
@@ -117,7 +117,7 @@ server {
 
 修改 `/etc/nginx/nginx.conf`，在 http 块中添加：
 
-```
+```conf
     ##
     # Cache
     #
@@ -127,7 +127,7 @@ server {
 
 修改目标 vhost 的配置文件：
 
-```
+```conf
 server {
     listen 443 ssl;
     listen [::]:443 ssl;
@@ -179,7 +179,7 @@ sudo apt-get install software-properties-common
 sudo add-apt-repository universe
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt-get update
-sudo apt-get install python-certbot-nginx 
+sudo apt-get install python-certbot-nginx
 ```
 
 ```
@@ -195,7 +195,7 @@ sudo certbot --nginx certonly
 ```conf
 # 在 http 块中
 ssl_certificate     /etc/letsencrypt/live/vampire.rip/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/vampire.rip/privkey.pem; 
+ssl_certificate_key /etc/letsencrypt/live/vampire.rip/privkey.pem;
 
 ssl_ciphers         EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
 ssl_protocols       TLSv1.2;
