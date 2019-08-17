@@ -9,6 +9,19 @@ module.exports = {
     sidebar: [
       ['/home', '主页'],
       {
+        title: 'Vampire 的归宿',
+        collapsable: false,
+        children: [
+          ['/server/vpsconf.md', 'VPS 的初始配置'],
+          ['/server/firewalld.md', '令人心安的防火墙'],
+          ['/server/bbr.md', 'BBR 拥塞控制算法'],
+          ['/server/vhost.md', 'Virtual Hosts(Server Blocks)'],
+          ['/server/teamcity.md', 'Docker in Docker & Vampire CI'],
+          ['/server/owncloud.md', 'Nextcloud 的魔法部署'],
+          ['/server/mailserver.md', 'Vampire Mail'],
+        ]
+      },
+      {
         title: '前端的 Vampire',
         collapsable: false,
         children: [
@@ -22,19 +35,6 @@ module.exports = {
         children: [
           ['/backend/bdd.md', 'mocha 测试'],
           ['/backend/pm2.md', 'Vampire 的 pm2'],
-        ]
-      },
-      {
-        title: 'Vampire 的归宿',
-        collapsable: false,
-        children: [
-          ['/server/vpsconf.md', 'VPS 的初始配置'],
-          ['/server/firewalld.md', '令人心安的防火墙'],
-          ['/server/bbr.md', 'BBR 拥塞控制算法'],
-          ['/server/vhost.md', 'Virtual Hosts(Server Blocks)'],
-          ['/server/teamcity.md', 'Docker in Docker & Vampire CI'],
-          ['/server/owncloud.md', 'Nextcloud 的魔法部署'],
-          ['/server/mailserver.md', 'Vampire Mail'],
         ]
       },
       {

@@ -151,20 +151,22 @@ server {
     }
 
     location / {
-	add_header Strict-Transport-Security "max-age=2592000; preload";
-	add_header X-Frame-Options DENY;
-	add_header X-Content-Type-Options nosniff;
-	add_header Referrer-Policy "no-referrer";
+        add_header Strict-Transport-Security "max-age=2592000; preload";
+        add_header X-Frame-Options DENY;
+        add_header X-Content-Type-Options nosniff;
+        add_header Referrer-Policy "no-referrer";
+
         proxy_pass http://example.com:4001/;
         proxy_http_version 1.1;
-	proxy_cache staticfilecache;
+	    proxy_cache staticfilecache;
         proxy_cache_valid      200  1h;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_cache_bypass $http_upgrade;
-	sub_filter "http://example.com:4000" "http://example.com/api";
-	sub_filter_once off;
-	sub_filter_types text/css application/javascript;
+
+        sub_filter "http://example.com:4000" "http://example.com/api";
+        sub_filter_once off;
+        sub_filter_types text/css application/javascript;
     }
 }
 ```
