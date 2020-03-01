@@ -59,6 +59,7 @@ module.exports = {
         title: '吐槽 & 杂项',
         collapsable: true,
         children: [
+          ['/misc/disable-format-popup.md', '禁用"使用驱动器之前需要将其格式化"'],
           ['/misc/git-amend.md', '奇怪的 Git Revert 事件'],
           ['/misc/visualstudio.md', '辣鸡 Visual Studio'],
           ['/misc/autoremove.md', 'Ubuntu 的自动移除'],

@@ -21,3 +21,18 @@ firmware = "efi"`
 
 + 那些看起来随便整的出现在引导选单上的 EFI 其实是写在 NVROM 里面的，并不存在于磁盘上。（所以如果设置了启动顺序移除 USB 什么的也不会丢掉）。
 
+#### 重新启动 VMWare Tools
+
+```bash
+sudo /etc/init.d/vmware-tools restart
+```
+
+#### 自动挂载 U 盘
+
+打开 `vmware.log` 查找 `USB: Found device`，找到需要自动挂载的设备，VMWare 可以通过 name、vid、pid 和 path 来定位设备
+
+修改 .vmx 文件，在其中添加对应的 `usb.autoConnect.device{seq} = "{key}:{value} {key2}:{value2}"` 即可，如：
+
+```
+usb.autoConnect.device0 = "name:SanDisk\ USB\ Extreme\ Pro vid:0781 pid:8888"
+```
