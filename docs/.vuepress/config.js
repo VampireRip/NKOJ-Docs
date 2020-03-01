@@ -41,6 +41,7 @@ module.exports = {
         title: 'Vampire 网络',
         collapsable: false,
         children: [
+          ['/network/tproxy.md', 'Vampire 透明代理'],
           ['/network/anycast.md', 'Vampire Anycast?'],
         ]
       },
@@ -48,6 +49,7 @@ module.exports = {
         title: '桌面版 Vampire',
         collapsable: true,
         children: [
+          ['/misc/vmware-install-to-usb.md', '通过 VMWare 向 U 盘装系统'],
           ['/desktop/disablemidpaste.md', '禁用 GDM 鼠标中键粘贴'],
           ['/desktop/compileiwlwifi.md', '编译 iwlwifi'],
           ['/desktop/compilegnome.md', '编译 gnome'],
